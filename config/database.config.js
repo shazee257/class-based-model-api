@@ -1,9 +1,7 @@
 import mongoose from 'mongoose';
 import colors from "colors";
-import { asyncHandler } from '../utils/helpers.js';
 
-
-const connectDB = asyncHandler(async () => {
+const connectDB = async () => {
     try {
         const DB_URI = `${process.env.MONGODB_URL}/${process.env.DB_NAME}`;
         const conn = await mongoose.connect(DB_URI);
@@ -12,6 +10,6 @@ const connectDB = asyncHandler(async () => {
         console.error(`Error: ${error.message}`.red.bold);
         process.exit(1);
     }
-});
+};
 
 export default connectDB;

@@ -1,4 +1,4 @@
-import BaseModel from "./common/baseModel";
-import RoleSchema from "./schema/role.schema.js";
+import BaseModel from "./common/baseModel.js";
+import UserSchema from "./schema/user.schema.js";
 
-export const RoleService = new BaseModel("Role", RoleSchema);
+export const UserService = new BaseModel("User", UserSchema);

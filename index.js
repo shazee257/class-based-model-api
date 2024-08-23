@@ -5,7 +5,6 @@ import { createServer } from "http";
 import cookieSession from "cookie-session";
 import connectDB from "./config/database.config.js";
 import API from "./api/index.js";
-import { generateResponse } from "./utils/helpers.js";
 
 // initialize environment variables
 dotenv.config();
@@ -33,7 +32,7 @@ app.use(cookieSession({
 }));
 app.use(cors({ origin: "*", credentials: true }));
 
-app.get('/', (req, res) => generateResponse(null, `${process.env.APP_NAME} API - Health check passed`, res));
+app.get('/', (req, res) => res.json({ message: "Welcome to the API" }));
 
 new API(app).registerGroups();
 
